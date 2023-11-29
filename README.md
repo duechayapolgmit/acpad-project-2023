@@ -2,9 +2,9 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=12999396)
 # Final Project
 
-**Title:** Items Application Manager  
-**Name:** Patrick Murphy  
-**Student ID:** G00123456  
+**Title:** County Explorer (County Details)  
+**Name:** Chayapol "Due" Hongsrimuang
+**Student ID:** G00388741
 
 ## Application Function
 
