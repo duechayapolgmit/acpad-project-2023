@@ -1,0 +1,8 @@
+ion-img {
+    object-fit: cover;
+    height: 35%;
+    
+    @media (max-width: 768px) {
+        height: 25%
+    }
+}
