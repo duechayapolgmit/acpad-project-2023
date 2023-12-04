@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { County, DatabaseService } from '../services/database.service';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-county',
@@ -7,29 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountyPage implements OnInit {
 
-  county: County = new County("Galway", "assets/temp/Galway.jpg", 57.3, 79934);
-  
+  county: any = undefined;
+  image: any = null;
 
-  constructor() { }
+  constructor(private database: DatabaseService, private storage: StorageService) { }
 
   ngOnInit() {
-    this.county.setDescription("Second largest county in Ireland, full of mountains, located near the pier.");
-  }
-
-}
-
-class County {
-
-  description: string = "Empty description.";
-
-  constructor(public name: string, 
-    public picture: string, 
-    public area: number, 
-    public population: number){
-  }
-
-  setDescription(desc: string){
-    this.description = desc;
+    let countyName = "galway";
+    this.database.readCounties().subscribe(
+      value => {
+        this.county = value.find(county => county.name.toLowerCase() == countyName.toLowerCase());
+      }
+    );
+    this.storage.getImage(countyName).then( (res) => { 
+      this.image = res });
   }
 
 }

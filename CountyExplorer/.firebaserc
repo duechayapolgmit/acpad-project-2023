@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "acpad-project-2023": {
+      "hosting": {
+        "app": [
+          "acpad-project-2023"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "acpad-project-2023"
+  }
+}
