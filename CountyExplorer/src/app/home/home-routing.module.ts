@@ -8,10 +8,6 @@ const routes: Routes = [
     path: '',
     component: HomePage,
   },
-  {
-    path: 'county',
-    component: CountyPage
-  }
 ];
 
 @NgModule({

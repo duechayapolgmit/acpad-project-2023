@@ -19,7 +19,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'county',
+    path: 'county/:county',
     loadChildren: () => import('./county/county.module').then( m => m.CountyPageModule)
   },
 ];

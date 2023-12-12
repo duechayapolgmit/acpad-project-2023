@@ -12,7 +12,7 @@ export class HomePage {
   constructor(private router: Router) {
   }
 
-  goCounty() {
-    this.router.navigate(["/county"]);
+  goCounty(county: string) {
+    this.router.navigate(["/county", county]);
   }
 }

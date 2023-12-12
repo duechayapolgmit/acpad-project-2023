@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { County, DatabaseService } from '../services/database.service';
 import { StorageService } from '../services/storage.service';
+import { LoadingController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-county',
@@ -9,20 +11,42 @@ import { StorageService } from '../services/storage.service';
 })
 export class CountyPage implements OnInit {
 
-  county: any = undefined;
+  county: any = {
+    name: "Loading"
+  };
+  countyName: string = "";
   image: any = null;
+  private routeSub: any;
 
-  constructor(private database: DatabaseService, private storage: StorageService) { }
+  constructor(private database: DatabaseService, private storage: StorageService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let countyName = "galway";
+    // Get county name from route
+    this.countyName = "";
+    this.routeSub = this.route.params.subscribe(params => {
+      this.countyName = params['county'];
+    });
+
+    // Get data from Firestore
     this.database.readCounties().subscribe(
       value => {
-        this.county = value.find(county => county.name.toLowerCase() == countyName.toLowerCase());
+        if (value.length != 0){
+          this.county = value.find(county => county.name.toLowerCase() == this.countyName.toLowerCase());
+        } else {
+          this.county = {
+            name: "Loading"
+          };
+        }
       }
     );
-    this.storage.getImage(countyName).then( (res) => { 
-      this.image = res });
+    this.storage.getImage(this.countyName).then( (res) => { 
+      let urlCreator = window.URL || window.webkitURL;
+      let imageUrl = urlCreator.createObjectURL(res);
+      this.image = imageUrl });
+  }
+
+  ngOnDestroy(){
+    this.routeSub.unsubscribe();
   }
 
 }
