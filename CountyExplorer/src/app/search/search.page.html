@@ -1,0 +1,18 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-searchbar (ionInput)="filterCounties($event)"/>
+    </ion-row>
+    <ion-row *ngFor="let county of filteredCounties">
+      <ion-col>
+        <ion-card>
+          <img src={{county.imageURL}}/>
+          <ion-card-header>
+            <ion-card-title>{{county.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-button fill="clear" (click)="goCounty(county.name)">More info</ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

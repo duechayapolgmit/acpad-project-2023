@@ -9,10 +9,4 @@ import { DatabaseService } from '../services/database.service';
 })
 export class HomePage {
 
-  constructor(private router: Router) {
-  }
-
-  goCounty(county: string) {
-    this.router.navigate(["/county", county]);
-  }
 }

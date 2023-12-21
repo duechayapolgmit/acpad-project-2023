@@ -39,6 +39,8 @@ export class CountyPage implements OnInit {
         }
       }
     );
+
+    // Get image
     this.storage.getImage(this.countyName).then( (res) => { 
       let urlCreator = window.URL || window.webkitURL;
       let imageUrl = urlCreator.createObjectURL(res);

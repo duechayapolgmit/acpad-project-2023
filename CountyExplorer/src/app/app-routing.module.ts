@@ -12,6 +12,10 @@ const routes: Routes = [
         loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
       },
       {
+        path: 'search',
+        loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+      },
+      {
         path: 'map',
         loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
       },
@@ -26,8 +30,7 @@ const routes: Routes = [
   {
     path: 'county/:county',
     loadChildren: () => import('./county/county.module').then( m => m.CountyPageModule)
-  },
-  
+  }
 ];
 
 @NgModule({

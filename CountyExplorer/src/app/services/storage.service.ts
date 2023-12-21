@@ -9,6 +9,7 @@ export class StorageService {
   constructor(private storage: Storage) { }
 
   getImage(name: string): Promise<Blob>{
+    name = name.toLowerCase();
     let imageRef: StorageReference = ref(this.storage, `county_images/${name}.jpg`);
     return getBlob(imageRef);
   }
