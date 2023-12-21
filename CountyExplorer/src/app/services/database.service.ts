@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CollectionReference, Firestore, collection, collectionData, query } from '@angular/fire/firestore';
+import { CollectionReference, Firestore, GeoPoint, collection, collectionData, query } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 export interface County { // schema for each county
@@ -7,7 +7,8 @@ export interface County { // schema for each county
   picture: string,
   description: string,
   area: number,
-  population: number
+  population: number,
+  position: GeoPoint
 }
 
 @Injectable({
@@ -33,7 +34,7 @@ export class DatabaseService {
     })
   }
 
-  readCounties() {
+  getCounties() {
     return this.counties$.asObservable();
   }
   

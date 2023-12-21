@@ -12,15 +12,20 @@ Discuss, in detail, what the application does. Add a screenshot image of the app
 
 ## Running the Application
 
-Provide step by step instructions on how to run your applicaiton. Are there any prerequisite softwares required?
+### API Key
+This application requires an API key to work. The .env file has been included in the full repository zip file, as well as in the project submission link on Moodle.
+
+If .env file is downloaded separately, copy the file into the root directory of the repository.
+
+### Set-up Instructions
 
 ```MARKDOWN
 List the instructions step by step
-    1. Install Angular CLI - npm install -g @angular/cli
-    2. Log in to Firebase - firebase login
-    3. ionic serve
-            :
-            :
+    1. Navigate to to the source folder - cd CountyExplorer
+    2. Install required resources - npm install
+    3. Install Angular CLI - npm install -g @angular/cli
+    4. Log in to Firebase - firebase login
+    5. Run the application - ionic serve
 ```
 
 ## Minimum Project Requirments
@@ -56,3 +61,4 @@ Discuss the issues you faced with creating your application. Provide possible so
 Provide links to resources used:
 
 * [YouTube](https://www.youtube.com/watch?v=Y0vH5Cm3HAk) - YouTube Tutorial I found helpful
+* [Ionic Docs](https://ionicframework.com/docs/ja/v6/native/google-maps) - Integrating Google Maps to Ionic App

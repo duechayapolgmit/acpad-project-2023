@@ -12,16 +12,22 @@ const routes: Routes = [
         loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
       },
       {
+        path: 'map',
+        loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+      },
+      {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
-      }
+      },
+      
     ]
   },
   {
     path: 'county/:county',
     loadChildren: () => import('./county/county.module').then( m => m.CountyPageModule)
   },
+  
 ];
 
 @NgModule({

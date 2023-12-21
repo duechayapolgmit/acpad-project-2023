@@ -28,7 +28,7 @@ export class CountyPage implements OnInit {
     });
 
     // Get data from Firestore
-    this.database.readCounties().subscribe(
+    this.database.getCounties().subscribe(
       value => {
         if (value.length != 0){
           this.county = value.find(county => county.name.toLowerCase() == this.countyName.toLowerCase());
