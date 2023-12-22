@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { County, DatabaseService } from '../services/database.service';
-import { StorageService } from '../services/storage.service';
+import { County, DatabaseService } from '../../services/database.service';
+import { StorageService } from '../../services/storage.service';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 

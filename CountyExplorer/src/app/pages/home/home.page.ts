@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-home',

@@ -9,15 +9,19 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+        loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
       },
       {
         path: 'search',
-        loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+        loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
       },
       {
         path: 'map',
-        loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+        loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
       },
       {
         path: '',
@@ -29,7 +33,19 @@ const routes: Routes = [
   },
   {
     path: 'county/:county',
-    loadChildren: () => import('./county/county.module').then( m => m.CountyPageModule)
+    loadChildren: () => import('./pages/county/county.module').then( m => m.CountyPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 

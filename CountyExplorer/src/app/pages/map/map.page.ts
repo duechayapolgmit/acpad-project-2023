@@ -3,7 +3,7 @@ import { GoogleMap, Marker} from '@capacitor/google-maps';
 import { Geolocation } from '@capacitor/geolocation';
 import { environment } from 'src/environments/environment';
 import { Capacitor } from '@capacitor/core';
-import { County, DatabaseService } from '../services/database.service';
+import { County, DatabaseService } from '../../services/database.service';
 import { Router } from '@angular/router';
 
 @Component({

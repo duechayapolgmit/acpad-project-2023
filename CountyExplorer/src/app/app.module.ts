@@ -11,6 +11,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent, TabsComponent],
@@ -24,7 +25,8 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
       "messagingSenderId":"763863517408"})), 
     provideFirestore(() => getFirestore()), 
     provideDatabase(() => getDatabase()), 
-    provideStorage(() => getStorage())],
+    provideStorage(() => getStorage()), 
+    provideAuth(() => getAuth())],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

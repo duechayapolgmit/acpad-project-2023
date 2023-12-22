@@ -1,0 +1,5 @@
+<div *ngIf="!loginStatus">
+  <ion-button [routerLink]="['/login']">Sign-in</ion-button>&nbsp;
+  <ion-button [routerLink]="['/register']">Register</ion-button>
+</div>
+<ng-template #elseBlock>Logged in!</ng-template>
