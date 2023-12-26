@@ -4,6 +4,9 @@
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>{{county.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon  class="ion-padding" name="heart-outline" (click)="toggleFavourite()"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

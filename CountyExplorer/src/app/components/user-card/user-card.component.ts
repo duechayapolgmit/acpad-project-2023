@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,14 +10,22 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserCardComponent implements OnInit {
 
-  loginStatus: boolean = false;
-  constructor(private authService: AuthService) { }
+  user$ = user(this.auth);
+  userSubscription: Subscription;
+
+  userEmail: string | null | undefined = "";
+  
+  constructor(private auth: Auth, private authService: AuthService) { 
+    this.userSubscription = this.user$.subscribe((aUser) => {
+      this.userEmail = aUser?.email;
+    })
+  }
 
   ngOnInit() {
-    this.authService.getLoginStatus().subscribe(res => {
-      console.log(res); 
-      this.loginStatus = res;
-    });
+  }
+
+  signOut(){
+    this.authService.logout();
   }
 
 }

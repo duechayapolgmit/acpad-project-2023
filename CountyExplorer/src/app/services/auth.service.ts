@@ -1,22 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, user } from '@angular/fire/auth';
 import { Firestore, doc, setDoc } from '@angular/fire/firestore';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   private _loginStatus: boolean = false;
+  private currentUser$: BehaviorSubject<any> = new BehaviorSubject<string>("");
 
-  constructor(private auth: Auth, private firestore: Firestore) { }
-
-  getLoginStatus() { 
-    const subscription = new BehaviorSubject<boolean>(this._loginStatus);
-    return subscription.asObservable();
-  };
-  setloginStatus(status: boolean): void { this._loginStatus = status };
+  constructor(private auth: Auth, private firestore: Firestore) {
+  }
 
   // Sign up
   async register({email, password}: {email: string; password: string}){

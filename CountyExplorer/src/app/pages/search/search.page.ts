@@ -39,6 +39,7 @@ export class SearchPage implements OnInit {
     const query = event.target.value.toLowerCase();
     this.filteredCounties = this.counties.filter(county => county.name.toLowerCase().indexOf(query) > -1)
   }
+  
   goCounty(countyName: string){
     this.router.navigate(["/county", countyName.toLowerCase()])
   }

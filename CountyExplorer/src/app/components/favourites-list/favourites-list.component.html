@@ -1,0 +1,18 @@
+<div *ngIf="!userEmail">
+  Please <a href="/login">sign-in</a> to access your favourite counties.
+</div>
+<div *ngIf="userEmail">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let county of filteredCounties">
+        <ion-card>
+          <img src={{county.imageURL}}/>
+          <ion-card-header>
+            <ion-card-title>{{county.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-button fill="clear" (click)="goCounty(county.name)">More info</ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

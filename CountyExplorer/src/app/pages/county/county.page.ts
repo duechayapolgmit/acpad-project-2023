@@ -45,6 +45,13 @@ export class CountyPage implements OnInit {
       let urlCreator = window.URL || window.webkitURL;
       let imageUrl = urlCreator.createObjectURL(res);
       this.image = imageUrl });
+
+    // Get favourite status
+    
+  }
+
+  toggleFavourite(){
+    
   }
 
   ngOnDestroy(){
