@@ -5,7 +5,10 @@
     </ion-buttons>
     <ion-title>{{county.name}}</ion-title>
     <ion-buttons slot="end">
-      <ion-icon  class="ion-padding" name="heart-outline" (click)="toggleFavourite()"></ion-icon>
+      <div class="ion-padding" (click)="toggleFavourite">
+        <ion-icon *ngIf="!favouriteExists" name="heart-outline" (click)="toggleFavourite()"></ion-icon>
+        <ion-icon *ngIf="favouriteExists" name="heart" (click)="toggleFavourite()"></ion-icon>
+      </div>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

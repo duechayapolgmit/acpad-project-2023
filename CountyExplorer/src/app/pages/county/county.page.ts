@@ -3,6 +3,7 @@ import { County, DatabaseService } from '../../services/database.service';
 import { StorageService } from '../../services/storage.service';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { FavouriteCounty, FavouritesService } from '../../services/favourites.service';
 
 @Component({
   selector: 'app-county',
@@ -18,7 +19,10 @@ export class CountyPage implements OnInit {
   image: any = null;
   private routeSub: any;
 
-  constructor(private database: DatabaseService, private storage: StorageService, private route: ActivatedRoute) { }
+  favourite: FavouriteCounty = {county: ''};
+  favouriteExists: boolean = false;
+
+  constructor(private database: DatabaseService, private favourites: FavouritesService, private storage: StorageService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // Get county name from route
@@ -41,17 +45,33 @@ export class CountyPage implements OnInit {
     );
 
     // Get image
-    this.storage.getImage(this.countyName).then( (res) => { 
+    this.image = this.storage.getImage(this.countyName).then( (res) => { 
       let urlCreator = window.URL || window.webkitURL;
       let imageUrl = urlCreator.createObjectURL(res);
       this.image = imageUrl });
 
     // Get favourite status
-    
+    this.favourites.getFavourites().subscribe(
+      value => {
+        const result = value.find(county => county.county.toLowerCase() == this.countyName.toLowerCase())
+        if (result) {
+          this.favourite = result;
+          this.favouriteExists = true;
+        }
+      }
+    )
   }
 
   toggleFavourite(){
-    
+    if (this.favouriteExists) {
+      this.favourites.removeFavourite(this.favourite);
+      this.favouriteExists = false;
+    } else {
+      const newFavourite = {county: this.countyName}
+      this.favourites.addFavourite(newFavourite);
+      this.favourite = newFavourite;
+      this.favouriteExists = true;
+    }
   }
 
   ngOnDestroy(){
