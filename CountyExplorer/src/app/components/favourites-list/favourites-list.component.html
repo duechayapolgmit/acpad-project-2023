@@ -4,16 +4,14 @@
 <div *ngIf="userEmail">
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let county of favouriteCounties">
-        <!--
+      <ion-col size="1" *ngFor="let county of favouriteCountiesDetails">
         <ion-card>
           <img src={{county.imageURL}}/>
           <ion-card-header>
             <ion-card-title>{{county.name}}</ion-card-title>
           </ion-card-header>
           <ion-button fill="clear" (click)="goCounty(county.name)">More info</ion-button>
-        </ion-card>-->
-        * {{county.county}}
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

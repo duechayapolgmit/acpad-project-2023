@@ -3,8 +3,8 @@
     <ion-row>
       <ion-searchbar (ionInput)="filterCounties($event)"/>
     </ion-row>
-    <ion-row *ngFor="let county of filteredCounties">
-      <ion-col>
+    <ion-row>
+      <ion-col size="1" *ngFor="let county of filteredCounties">
         <ion-card>
           <img src={{county.imageURL}}/>
           <ion-card-header>
