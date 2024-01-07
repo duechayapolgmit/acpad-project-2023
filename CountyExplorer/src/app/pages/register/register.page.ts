@@ -13,6 +13,7 @@ export class RegisterPage {
 
   credentials = this.fb.nonNullable.group({
     email: ['test@test.com', [Validators.required, Validators.email]],
+    username: ['', [Validators.required, Validators.minLength(3)]],
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
@@ -20,6 +21,7 @@ export class RegisterPage {
     private loadingController: LoadingController, private alertController: AlertController) { }
 
   get email() { return this.credentials.controls.email; }
+  get username() { return this.credentials.controls.username; }
   get password() { return this.credentials.controls.password; }
 
   async register() {

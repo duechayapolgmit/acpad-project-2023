@@ -1,8 +1,8 @@
-<div *ngIf="userEmail">
-  <p>Hello. Your logged in email is {{userEmail}}</p><br/>
+<div *ngIf="username">
+  <p>Hello {{username}}!</p>
   <ion-button (click)="signOut()">Sign Out</ion-button>
 </div>
-<div *ngIf="!userEmail">
+<div *ngIf="!username">
   <ion-button [routerLink]="['/login']">Sign In</ion-button>&nbsp;
   <ion-button [routerLink]="['/register']">Register</ion-button>&nbsp;
 </div>

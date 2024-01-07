@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, user } from '@angular/fire/auth';
-import { Firestore, doc, setDoc } from '@angular/fire/firestore';
+import { Firestore, doc, setDoc, collection, query, collectionData } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -13,14 +13,15 @@ export class AuthService {
   private currentUser$: BehaviorSubject<any> = new BehaviorSubject<string>("");
 
   constructor(private auth: Auth, private firestore: Firestore) {
+  
   }
 
   // Sign up
-  async register({email, password}: {email: string; password: string}){
+  async register({email, username, password}: {email: string; username:string; password: string}){
     try {
       const credentials = await createUserWithEmailAndPassword(this.auth, email, password);
       const ref = doc(this.firestore, `user/${credentials.user.uid}`);
-      setDoc(ref, {email});
+      setDoc(ref, {email, username});
       return credentials;
     } catch (e) {
       console.log ("Error: ", e);

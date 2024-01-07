@@ -53,7 +53,6 @@ export class FavouritesListComponent implements OnInit {
 
       // Get images
       this.favouriteCountiesDetails = this.getImages();
-      console.log(this.favouriteCountiesDetails)
       })
   }
 

@@ -5,6 +5,10 @@
       <ion-note slot="end" *ngIf="(email.dirty || email.touched) && email.errors">Invalid email</ion-note>
     </ion-item>
     <ion-item class="ion-margin-bottom">
+      <ion-input type="text" placeholder="Username" formControlName="username"/>
+      <ion-note slot="end" *ngIf="(username.dirty || username.touched) && email.errors">Minimum of 3 characters.</ion-note>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
       <ion-input type="password" placeholder="Password" formControlName="password"/>
       <ion-note slot="end" *ngIf="(password.dirty || password.touched) && email.errors">Minimum of 8 characters.</ion-note>
     </ion-item>
