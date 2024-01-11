@@ -15,8 +15,8 @@ import { UserCardComponent } from 'src/app/components/user-card/user-card.compon
     FormsModule,
     IonicModule,
     SettingsPageRoutingModule,
-    
+    UserCardComponent
   ],
-  declarations: [SettingsPage, UserCardComponent]
+  declarations: [SettingsPage]
 })
 export class SettingsPageModule {}

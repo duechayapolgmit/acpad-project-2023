@@ -1,6 +1,8 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { Subscription, filter } from 'rxjs';
 import { DatabaseService } from 'src/app/services/database.service';
 import { FavouritesService } from 'src/app/services/favourites.service';
@@ -10,6 +12,8 @@ import { StorageService } from 'src/app/services/storage.service';
   selector: 'favourites-list',
   templateUrl: './favourites-list.component.html',
   styleUrls: ['./favourites-list.component.scss'],
+  standalone: true,
+  imports: [IonicModule, NgIf, NgFor]
 })
 export class FavouritesListComponent implements OnInit {
 

@@ -1,5 +1,8 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit} from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
+import { RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -8,6 +11,8 @@ import { UsersService } from 'src/app/services/users.service';
   selector: 'user-card',
   templateUrl: './user-card.component.html',
   styleUrls: ['./user-card.component.scss'],
+  standalone: true,
+  imports: [IonicModule, RouterLink, NgIf]
 })
 export class UserCardComponent implements OnInit {
 

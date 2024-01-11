@@ -13,8 +13,9 @@ import { FavouritesListComponent } from 'src/app/components/favourites-list/favo
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    FavouritesListComponent
   ],
-  declarations: [HomePage, FavouritesListComponent]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
