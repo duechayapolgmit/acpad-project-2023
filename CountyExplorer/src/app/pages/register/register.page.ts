@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
+// Register page for the user system
 export class RegisterPage {
 
   credentials = this.fb.nonNullable.group({
@@ -20,10 +21,12 @@ export class RegisterPage {
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService,
     private loadingController: LoadingController, private alertController: AlertController) { }
 
+  // Get methods for fields
   get email() { return this.credentials.controls.email; }
   get username() { return this.credentials.controls.username; }
   get password() { return this.credentials.controls.password; }
 
+  // Register with the system
   async register() {
     const loading = await this.loadingController.create();
     await loading.present();

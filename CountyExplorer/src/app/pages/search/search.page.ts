@@ -8,6 +8,7 @@ import { StorageService } from '../../services/storage.service';
   templateUrl: './search.page.html',
   styleUrls: ['./search.page.scss'],
 })
+// Search page with all counties
 export class SearchPage implements OnInit {
 
   counties: any[] = [];
@@ -35,11 +36,13 @@ export class SearchPage implements OnInit {
     });
   }
 
+  // Filter counties based on query
   filterCounties(event: any) {
     const query = event.target.value.toLowerCase();
     this.filteredCounties = this.counties.filter(county => county.name.toLowerCase().indexOf(query) > -1)
   }
   
+  // Go to desired county via "More Info"
   goCounty(countyName: string){
     this.router.navigate(["/county", countyName.toLowerCase()])
   }

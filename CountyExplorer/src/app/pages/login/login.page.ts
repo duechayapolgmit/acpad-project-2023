@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+// Log-in page for the user system
 export class LoginPage {
 
   credentials = this.fb.nonNullable.group({
@@ -22,9 +23,11 @@ export class LoginPage {
     private loadingController: LoadingController, private alertController: AlertController,
     private userCardComponent: UserCardComponent) { }
 
+  // Get methods for fields
   get email() { return this.credentials.controls.email; }
   get password() { return this.credentials.controls.password; }
 
+  // Log-in
   async login() {
     // Loading overlay
     const loading = await this.loadingController.create();
@@ -34,7 +37,7 @@ export class LoginPage {
     await loading.dismiss();
 
     if (user) {
-      this.userCardComponent.ngOnInit();
+      this.userCardComponent.ngOnInit(); // refresh the user card component
       this.location.back();
     } else {
         const alert = await this.alertController.create({header: 'Log-in failed', message: 'Please try again', buttons: ['OK']});

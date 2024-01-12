@@ -12,7 +12,7 @@ export interface FavouriteCounty {
 @Injectable({
   providedIn: 'root'
 })
-
+// Service for favourites firestore, based on authentication
 export class FavouritesService {
 
   private collectionRef: CollectionReference;
@@ -24,6 +24,7 @@ export class FavouritesService {
     this.subscribeAuth();
   }
 
+  // Triggers the favourites list subscription. If logged in, shows that user's favourites list and vice versa.
   private subscribeAuth(): void {
     onAuthStateChanged(this.auth, user => {
       if (user) this.subscribeToFavourites(user.uid);
@@ -31,6 +32,7 @@ export class FavouritesService {
     })
   }
 
+  // Subscribes to the favourites list via userID
   private subscribeToFavourites(userId: string): void {
     const queryFav = query(this.collectionRef, where('user', '==', userId));
     const favourites$ = collectionData(queryFav, {idField: 'id'}) as Observable<FavouriteCounty[]>;
@@ -38,11 +40,13 @@ export class FavouritesService {
     this.subscription = favourites$.subscribe(favs => this.favourites$.next(favs))
   }
 
+  // Unsubscribe the favourites list.
   private unsubscribeToFavourites(): void {
     this.favourites$.next([]);
     if (this.subscription) this.subscription.unsubscribe();
   }
 
+  // Add a favourite to the favourites list
   async addFavourite(fav: FavouriteCounty) {
     try {
       await addDoc(this.collectionRef, {...fav, user: this.auth.currentUser?.uid});
@@ -51,6 +55,7 @@ export class FavouritesService {
     }
   }
 
+  // Remove a favourite from the favourite list
   async removeFavourite(fav: FavouriteCounty) {
     try {
       const ref = doc(this.firestore, `favourites/${fav.id}`);
@@ -60,6 +65,7 @@ export class FavouritesService {
     }
   }
 
+  // Get the current favourites liust as an observable
   getFavourites() {
     return this.favourites$.asObservable();
   }

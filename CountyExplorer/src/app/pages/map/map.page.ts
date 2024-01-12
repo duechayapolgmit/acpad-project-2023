@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './map.page.html',
   styleUrls: ['./map.page.scss'],
 })
+// Map page of the map of counties in Ireland
 export class MapPage implements OnInit {
 
   latitude: number = 0;

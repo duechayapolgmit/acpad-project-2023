@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
+// Service for authentication
 export class AuthService {
 
   private _loginStatus: boolean = false;

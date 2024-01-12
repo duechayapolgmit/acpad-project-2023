@@ -20,7 +20,7 @@ const routes: Routes = [
         loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
       },
       {
-        path: 'settings',
+        path: 'user',
         loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
       },
       {
@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/county/county.module').then( m => m.CountyPageModule)
   },
   {
-    path: 'settings',
+    path: 'user',
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {

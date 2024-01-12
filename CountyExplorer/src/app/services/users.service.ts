@@ -10,6 +10,7 @@ export interface User {
 @Injectable({
   providedIn: 'root'
 })
+// Service for user firestore, for user details
 export class UsersService {
 
   private collection: CollectionReference;
@@ -21,6 +22,7 @@ export class UsersService {
     this.subscribe();
   }
 
+  // Subscribes to the users list
   private subscribe(): void {
     const userQuery = query(this.collection); // Query to collection
     const users$ = collectionData(userQuery) as Observable<User[]>; // Get observable
@@ -29,6 +31,7 @@ export class UsersService {
     })
   }
 
+  // Gets the users' list
   getUsers() {
     return this.users$.asObservable();
   }

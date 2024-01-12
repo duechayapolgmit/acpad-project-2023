@@ -14,6 +14,7 @@ import { UsersService } from 'src/app/services/users.service';
   standalone: true,
   imports: [IonicModule, RouterLink, NgIf]
 })
+// Standalone component for the user's card in user menu
 export class UserCardComponent implements OnInit {
 
   user$ = user(this.auth);
@@ -23,6 +24,7 @@ export class UserCardComponent implements OnInit {
   username : string | null | undefined = "";
   userEmail: string | null | undefined = "";
   
+  // Initialise subscriptions
   constructor(private auth: Auth, private authService: AuthService, private userService: UsersService) { 
     this.userAuthSubscription = this.user$.subscribe((aUser) => {
       this.userEmail = aUser?.email;
@@ -38,9 +40,11 @@ export class UserCardComponent implements OnInit {
     ))
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    
   }
-
+  
+  // Handle signing out
   signOut(){
     this.authService.logout();
   }

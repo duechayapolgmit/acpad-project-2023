@@ -10,6 +10,7 @@ import { FavouriteCounty, FavouritesService } from '../../services/favourites.se
   templateUrl: './county.page.html',
   styleUrls: ['./county.page.scss'],
 })
+// Page for each county's details
 export class CountyPage implements OnInit {
 
   county: any = {
@@ -62,6 +63,7 @@ export class CountyPage implements OnInit {
     )
   }
 
+  // Toggle favourites for each county
   toggleFavourite(){
     if (this.favouriteExists) {
       this.favourites.removeFavourite(this.favourite);
@@ -74,6 +76,7 @@ export class CountyPage implements OnInit {
     }
   }
 
+  // Unsubscribe from route when exit out
   ngOnDestroy(){
     this.routeSub.unsubscribe();
   }

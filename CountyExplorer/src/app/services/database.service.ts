@@ -14,7 +14,7 @@ export interface County { // schema for each county
 @Injectable({
   providedIn: 'root'
 })
-
+// Service for counties firestore
 export class DatabaseService {
 
   private collection: CollectionReference;
@@ -26,6 +26,7 @@ export class DatabaseService {
     this.subscribe();
   }
 
+  // Subscribes to the counties collection
   private subscribe(): void {
     const countyQuery = query(this.collection); // Query to collection
     const counties$ = collectionData(countyQuery) as Observable<County[]>; // Get observable
@@ -34,6 +35,7 @@ export class DatabaseService {
     })
   }
 
+  // Get the counties list as Observable
   getCounties() {
     return this.counties$.asObservable();
   }
