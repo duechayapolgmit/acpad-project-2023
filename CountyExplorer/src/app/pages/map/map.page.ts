@@ -29,16 +29,16 @@ export class MapPage implements OnInit {
     // Create map
     const mapRef = document.getElementById('map') as HTMLElement;
     const newMap = await GoogleMap.create({
-      id: 'my-map', // Unique identifier for this map instance
-      element: mapRef, // reference to the capacitor-google-map element
-      apiKey: this.apiKey, // Your Google Maps API Key
+      id: 'my-map', 
+      element: mapRef, 
+      apiKey: this.apiKey, 
       config: {
         center: {
-          // The initial position to be rendered by the map
           lat: this.latitude,
           lng: this.longitude,
         },
-        zoom: 8, // The initial zoom level to be rendered by the map
+        zoom: 8,
+        disableDefaultUI: true
       },
     });
 
