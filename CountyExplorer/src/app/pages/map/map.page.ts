@@ -16,7 +16,7 @@ export class MapPage implements OnInit {
 
   latitude: number = 0;
   longitude: number = 0;
-  apiKey: any = "REPLACE_ME"
+  apiKey: any = "AIzaSyAhTAuXMnhhQqnPLomru0Z16d1vKRgkrdk"
 
   constructor(private database: DatabaseService, private router: Router) { }
 
