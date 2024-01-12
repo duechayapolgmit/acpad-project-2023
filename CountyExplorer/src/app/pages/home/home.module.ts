@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { FavouritesListComponent } from 'src/app/components/favourites-list/favourites-list.component';
+import { RandomCountyComponent } from 'src/app/components/random-county/random-county.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FavouritesListComponent } from 'src/app/components/favourites-list/favo
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    FavouritesListComponent
+    FavouritesListComponent,
+    RandomCountyComponent
   ],
   declarations: [HomePage]
 })
