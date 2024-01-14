@@ -18,7 +18,7 @@
     3. Install Angular CLI - npm install -g @angular/cli
     4. Log in to Firebase - firebase login
     5. Run the application - ionic serve
-    6. The application can be accessed by the forwarded port address, both in phone's browser or main browser.
+    6. The application can be accessed by the forwarded port address, both in phone's browser or main desktop browser.
 ```
 
 ## Application Functionality and Architecture
