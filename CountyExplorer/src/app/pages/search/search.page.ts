@@ -25,6 +25,7 @@ export class SearchPage implements OnInit {
       let newCounties : any[] = [];
       this.counties.forEach(county => {
         this.storage.getImage(county.name).then( (res) => { 
+          // From: https://stackoverflow.com/questions/23150333/html5-javascript-dataurl-to-blob-blob-to-dataurl
           let urlCreator = window.URL || window.webkitURL;
           let imageUrl = urlCreator.createObjectURL(res);
           county.imageURL = imageUrl;

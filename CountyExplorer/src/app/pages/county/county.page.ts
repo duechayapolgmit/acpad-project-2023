@@ -47,6 +47,7 @@ export class CountyPage implements OnInit {
 
     // Get image
     this.image = this.storage.getImage(this.countyName).then( (res) => { 
+      // From: https://stackoverflow.com/questions/23150333/html5-javascript-dataurl-to-blob-blob-to-dataurl
       let urlCreator = window.URL || window.webkitURL;
       let imageUrl = urlCreator.createObjectURL(res);
       this.image = imageUrl });

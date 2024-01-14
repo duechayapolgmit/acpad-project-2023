@@ -104,3 +104,4 @@ Other additional counties can also be added in as well, but as for demonstration
 ## Resources
 
 * [Ionic Docs](https://ionicframework.com/docs/ja/v6/native/google-maps) - Integrating Google Maps to Ionic App
+* [Stack Overflow](https://stackoverflow.com/questions/23150333/html5-javascript-dataurl-to-blob-blob-to-dataurl) - Converting a blob to an image URL. Used in converting counties images to display in pages. (only the question part)
