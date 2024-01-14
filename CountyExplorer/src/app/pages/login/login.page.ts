@@ -14,8 +14,9 @@ import { AuthService } from 'src/app/services/auth.service';
 // Log-in page for the user system
 export class LoginPage {
 
+  // credentials validators and details
   credentials = this.fb.nonNullable.group({
-    email: ['test@test.com', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
 

@@ -37,7 +37,7 @@ export class MapPage implements OnInit {
           lat: this.latitude,
           lng: this.longitude,
         },
-        zoom: 8,
+        zoom: 10,
         disableDefaultUI: true
       },
     });

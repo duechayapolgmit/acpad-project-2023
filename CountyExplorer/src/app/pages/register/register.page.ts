@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 // Register page for the user system
 export class RegisterPage {
 
+  // credentials validators and details
   credentials = this.fb.nonNullable.group({
     email: ['test@test.com', [Validators.required, Validators.email]],
     username: ['', [Validators.required, Validators.minLength(3)]],
@@ -35,7 +36,7 @@ export class RegisterPage {
     await loading.dismiss();
 
     if (user) {
-      this.router.navigateByUrl('/settings', {replaceUrl: true});
+      this.router.navigateByUrl('/user', {replaceUrl: true});
     }
     else {
       const alert = await this.alertController.create({header: 'Registration failed', message: 'Please try again', buttons: ['OK']});

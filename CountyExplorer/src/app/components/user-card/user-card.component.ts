@@ -31,7 +31,7 @@ export class UserCardComponent implements OnInit {
     })
     this.userDataSubscription = this.userService.getUsers().subscribe((
       value => {
-        if (value.length != 0) {
+        if (value.length != 0) { // prevents if there's no users in the database
           this.username = value.find(user => user.email == this.userEmail)?.username;
         } else {
           this.username = null;

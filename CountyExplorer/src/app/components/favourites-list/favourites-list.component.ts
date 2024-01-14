@@ -60,7 +60,7 @@ export class FavouritesListComponent {
       })
   }
 
-  // Get the images of the county
+  // Get the images of the county, by inserting the images into the original array
   getImages(): any[] {
     let newCounties : any[] = [];
 

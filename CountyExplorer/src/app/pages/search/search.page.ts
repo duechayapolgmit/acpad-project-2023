@@ -11,8 +11,8 @@ import { StorageService } from '../../services/storage.service';
 // Search page with all counties
 export class SearchPage implements OnInit {
 
-  counties: any[] = [];
-  filteredCounties: any[] = [];
+  counties: any[] = []; // initial counties
+  filteredCounties: any[] = []; // counties filtered by query
 
   constructor(private database: DatabaseService, private router: Router, private storage: StorageService) { }
 

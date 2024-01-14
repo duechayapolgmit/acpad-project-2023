@@ -45,10 +45,4 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-  // Reset Password
-  resetPassword(email: string) {
-    return sendPasswordResetEmail(this.auth, email);
-  }
-
-  
 }
